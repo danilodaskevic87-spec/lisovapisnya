@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Послуги</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#0f172a,#020617);
+  color:#fff;
+  padding:20px;
+}
+
+.box{
+  max-width:420px;
+  margin:auto;
+  background:#020617;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+
+.service{
+  margin-top:14px;
+  padding:14px;
+  border-radius:14px;
+  background:#020617;
+  box-shadow:inset 0 0 0 1px #1e293b;
+}
+
+button,input{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border-radius:10px;
+  border:none;
+  font-size:15px;
+}
+
+button{
+  background:#2563eb;
+  color:#fff;
+  cursor:pointer;
+}
+
+button:hover{background:#1d4ed8;}
+
+input{
+  background:#0f172a;
+  color:#fff;
+}
+
+.price{
+  opacity:.85;
+  font-size:14px;
+  margin-top:4px;
+}
+
+.balance{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+a{
+  color:#38bdf8;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🛎️ Послуги</h2>
+
+  <div class="balance">
+    Баланс: <b><span id="balance">0</span></b>
+  </div>
+
+  <div class="service">
+    🍬 Цукерка <span class="price">– 5</span>
+    <button onclick="buy(5,'Цукерка')">Купити</button>
+  </div>
+
+  <div class="service">
+    💧 Вода <span class="price">– 3</span>
+    <button onclick="buy(3,'Вода')">Купити</button>
+  </div>
+
+  <div class="service">
+    🥤 Кока-Кола <span class="price">– 8</span>
+    <button onclick="buy(8,'Кока-Кола')">Купити</button>
+  </div>
+
+  <div class="service">
+    😎 Кайф-зона <span class="price">– 30 за квиток</span>
+    <p id="kzLeft" class="price">Залишилось місць: 0</p>
+    <input id="kzCount" type="number" min="1" placeholder="Кількість квитків">
+    <button onclick="buyKZ()">Купити</button>
+  </div>
+
+  <div class="service">
+    📽️ Проектор <span class="price">– 3 за хв</span>
+    <input id="projMin" type="number" min="1" placeholder="Кількість хвилин">
+    <button onclick="buyProjector()">Купити</button>
+  </div>
+
+  <div class="service">
+    🧖‍♀️ SPA — Масаж <span class="price">– 50 за 10 хв</span>
+    <input id="spaMin" type="number" min="10" step="10"
+           placeholder="Хвилини (кратно 10)">
+    <button onclick="buySpa()">Купити</button>
+  </div>
+
+  <div class="service">
+    💄 Косметолог <span class="price">– 36</span>
+    <button onclick="buy(36,'Косметолог')">Купити</button>
+  </div>
+
+  <a href="bank.html">← Назад</a>
+</div>
+
+<script src="services.js"></script>
+</body>
+</html>
