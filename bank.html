@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Лісова Пісня — Банк</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -15,12 +14,16 @@ body{
   padding:20px
 }
 .box{
-  max-width:420px;
+  max-width:460px;
   margin:auto;
   background:#020617;
   padding:20px;
   border-radius:16px;
   box-shadow:0 0 30px rgba(0,0,0,.6)
+}
+.buttons{
+  display:flex;
+  gap:10px;
 }
 button,input{
   width:100%;
@@ -33,7 +36,8 @@ button,input{
 button{
   background:#22c55e;
   color:#000;
-  font-weight:bold
+  font-weight:bold;
+  cursor:pointer
 }
 input{
   background:#0f172a;
@@ -53,33 +57,40 @@ input{
 <div class="box">
   <h2>🌲 Лісова Пісня</h2>
 
-  <button onclick="openOrder()">🌲 Купити ліснички</button>
+  <!-- КНОПКИ ПОРУЧ -->
+  <div class="buttons">
+    <button onclick="alert('Послуги')">🛎 Послуги</button>
+    <button onclick="openOrder()">🌲 Купити ліснички</button>
+  </div>
 
+  <!-- ФОРМА -->
   <div id="orderBox">
-    <h3>Купівля лісничків</h3>
+    <h3>Демо-оплата</h3>
 
     <label>Імʼя</label>
     <input id="buyerName" placeholder="Ваше імʼя">
-   
-<label>CVV</label>
-    <input id="CVV" placeholder="CVV">
-   
-    <label>Номер карти</label>
-    <input id="karta" placeholder="karta">
+
+    <label>номер карти</label>
+    <input id="f1" placeholder="1">
+
+    <label>CVV</label>
+    <input id="f2" placeholder="2">
+
+    <label>ім'я власника карти</label>
+    <input id="f3" placeholder="3">
+
+    <label>термін дії карти (4 цифри)</label>
+    <input id="f4" maxlength="4" placeholder="1234">
 
     <label>Кількість лісничків</label>
     <input id="qty" type="number" min="1" value="1" oninput="calcSum()">
 
-    <label>термін дії карти (4 цифри)</label>
-    <input id="Code" maxlength="4" placeholder="1234">
+    <p>💰 Сума: <b><span id="sum">0.30</span> грн</b></p>
 
-    <p>💰 Сума до оплати: <b><span id="sum">0.30</span> грн</b></p>
-
-    <button onclick="sendOrder()">Створити замовлення</button>
+    <button onclick="sendOrder()">Оплатити (демо)</button>
   </div>
 </div>
 
 <script src="order.js"></script>
 </body>
 </html>
-
